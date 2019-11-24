@@ -122,3 +122,22 @@ where k = n*c + n*d + c*d > 0. This is a contradiction. And therefore we can con
 So to conclude again. The algorithm factors out all the prime factors below the the square root. If there is a quotient larger than 1 once this is done, then that quotient will be a prime factor as well.
 --------->
 That really cleared it up Kristian. So it is possible to have a maximum of one prime factor larger than the square root. And to find this prime factor (hoping it’s greater than 1), we simply divide the number by all the prime factors that were found less than the square root. Thank you!
+
+/* #include "iostream"
+inline bool isprime(const __int64 number) {
+	static __int64 i;
+	if (!(number % 2)) return false;
+	for (i = 3; i*i <= number; i += 2) {if (!(number % i)) return false;}
+	return true;
+}
+int main() {
+	const __int64 number = 317584931803;
+	__int64 max = 0;
+	for(__int64 i = 3; i*i <= number; i += 2) {
+		if(!(number % i))
+			if(isprime(i))
+				max = i;
+	}
+	std::cout << max;
+	return 0;
+} */
